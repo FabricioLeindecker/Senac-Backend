@@ -1,4 +1,4 @@
-/*
+/* JavaScript
 function checaTriangulo(a, b, c) {
     if (a !== b && b !== c) {
         return "Escaleno";
@@ -9,6 +9,7 @@ function checaTriangulo(a, b, c) {
     }
 }
 */
+//TypeScript
 function checkTriangle(a:number, b:number, c:number):string {
     if (a !== b && b !== c) {
         return "Escaleno";
