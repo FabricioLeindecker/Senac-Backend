@@ -26,5 +26,5 @@ function checkUpdateId():boolean {
     const cond2 = age > 20 && age <= 50 && time >= 10;
     const cond3 = age > 50 && time >= 15;
     
-    return (cond1 || cond2 || cond3)
+    return (cond1 || cond2 || cond3);
 }

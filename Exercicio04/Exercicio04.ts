@@ -26,7 +26,7 @@ function compareTwoNumbers(num1:number, num2:number):number {
         lowerNumber = num2;
     } else {
         higherNumber = num2;
-        lowerNumber= num1;
+        lowerNumber = num1;
     }
 
     const diference = higherNumber - lowerNumber;
