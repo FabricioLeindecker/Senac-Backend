@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx tsc && node ./build/exercicio06.js"
+    "start": "npx tsc && node ./build/Exercicio06.js"
   },
   "keywords": [],
   "author": "",
