@@ -4,7 +4,7 @@
 
 function apresentation(name: string, dateBirth: string): string {
     const nameApresentation:string = name;
-    let splitDate = dateBirth.split("/");
+    let splitDate = dateBirth.split("/"); //divide a string em partes baseada no caracter '/', array com 3 elementos
     let prhase:string = `Olá, me chamo ${nameApresentation} e nasci no dia ${splitDate[0]} de ${splitDate[1]} do ${splitDate[2]}`;
 
     return prhase;
