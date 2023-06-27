@@ -16,8 +16,8 @@ npx tsc --init
 # Configurações do arquivo tsconfig.json
 "target": "es6",
 "module": "commonjs",
-"rootDir": "./src",
 "sourceMap": true,
+"rootDir": "./src",
 "outDir": "./build",
 "removeComments": true,
 "noImplicitAny": true, 
