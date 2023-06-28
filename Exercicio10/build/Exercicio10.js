@@ -1,16 +1,16 @@
 "use strict";
-var GENDER;
-(function (GENDER) {
-    GENDER["ACTION"] = "A\u00E7\u00E3o";
-    GENDER["DRAMA"] = "Drama";
-    GENDER["COMEDY"] = "Com\u00E9dia";
-    GENDER["ROMANCE"] = "Romance";
-    GENDER["TERROR"] = "Terror";
-})(GENDER || (GENDER = {}));
-function streaming(name, date, gender, avaliation) {
-    console.log(typeof name, typeof date, typeof gender, typeof avaliation);
-    console.log("Nome:", name, "Data de lançamento:", date, " Gênero:", gender, avaliation || '');
+var gender;
+(function (gender) {
+    gender["ACTION"] = "A\u00E7\u00E3o";
+    gender["DRAMA"] = "Drama";
+    gender["COMEDY"] = "Com\u00E9dia";
+    gender["ROMANCE"] = "Romance";
+    gender["TERROR"] = "Terror";
+})(gender || (gender = {}));
+function streaming(name, date, genre, avaliation) {
+    console.log(typeof name, typeof date, typeof genre, typeof avaliation);
+    console.log("Nome:", name, "\nData de lançamento:", date, "\nGênero:", genre, avaliation !== undefined ? "\nPontuação: " + avaliation : '');
 }
-streaming("John Wick", 2014, GENDER.ACTION, 90);
-streaming("Exorcista", 1990, GENDER.TERROR);
+streaming("John Wick", 2014, gender.ACTION, 90);
+streaming("Exorcista", 1990, gender.TERROR);
 //# sourceMappingURL=Exercicio10.js.map

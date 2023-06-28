@@ -1,0 +1,41 @@
+// O seguinte `array` traz as pessoas colaboradoras de uma empresa, com seus salários, setores e se trabalham presencialmente ou por home office:
+// [
+// 	{ nome: "Marcos", salário: 2500, setor: "marketing", presencial: true },
+// 	{ nome: "Maria" ,salário: 1500, setor: "vendas", presencial: false},
+// 	{ nome: "Salete" ,salário: 2200, setor: "financeiro", presencial: true},
+// 	{ nome: "João" ,salário: 2800, setor: "marketing", presencial: false},
+// 	{ nome: "Josué" ,salário: 5500, setor: "financeiro", presencial: true},
+// 	{ nome: "Natalia" ,salário: 4700, setor: "vendas", presencial: true},
+// 	{ nome: "Paola" ,salário: 3500, setor: "marketing", presencial: true }
+// ]
+// Considerando o `array`acima, crie um `ENUM` para os setores e um `type` para as pessoas colaboradoras. Em seguida, crie uma função que receba este `array`como parâmetro e retorne apenas as pessoas do setor de marketing que trabalham presencialmente
+
+enum department {
+    MARKETING = "marketing",
+    SALES = "vendas",
+    FINANCIAL = "financeiro",
+}
+
+type employee = {
+    name:string,
+    salary:number,
+    office:department,
+    presential:boolean
+ }
+
+const employees: employee[] = [
+    { name: "Marcos", salary: 2500, office: department.MARKETING, presential: true },
+    { name: "Maria" ,salary: 1500, office: department.SALES, presential: false},
+    { name: "Salete" ,salary: 2200, office: department.FINANCIAL, presential: true},
+    { name: "João" ,salary: 2800, office: department.MARKETING, presential: false},
+    { name: "Josué" ,salary: 5500, office: department.FINANCIAL, presential: true},
+    { name: "Natalia" ,salary: 4700, office: department.SALES, presential: true},
+    { name: "Paola" ,salary: 3500, office: department.MARKETING, presential: true }
+ ]
+
+ function getMarketingEmployeesInOffice(employees: employee[]): employee[] {
+    return employees.filter(employee => employee.office === department.MARKETING && employee.presential);
+  }
+
+ const marketingEmployeesInOffice = getMarketingEmployeesInOffice(employees);
+console.log(marketingEmployeesInOffice);
