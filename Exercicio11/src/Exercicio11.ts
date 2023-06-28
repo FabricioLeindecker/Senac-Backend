@@ -16,14 +16,14 @@ enum department {
     FINANCIAL = "financeiro",
 }
 
-type employee = {
+type person = {
     name:string,
     salary:number,
     office:department,
     presential:boolean
  }
 
-const employees: employee[] = [
+const employees: person[] = [
     { name: "Marcos", salary: 2500, office: department.MARKETING, presential: true },
     { name: "Maria" ,salary: 1500, office: department.SALES, presential: false},
     { name: "Salete" ,salary: 2200, office: department.FINANCIAL, presential: true},
@@ -33,9 +33,13 @@ const employees: employee[] = [
     { name: "Paola" ,salary: 3500, office: department.MARKETING, presential: true }
  ]
 
- function getMarketingEmployeesInOffice(employees: employee[]): employee[] {
-    return employees.filter(employee => employee.office === department.MARKETING && employee.presential);
-  }
+// Função que retorna os funcionários de marketing que estão trabalhando presencialmente
+function getMarketing(employees: person[]): person[] {
+  return employees.filter(person => person.office === department.MARKETING && person.presential);
+}
 
- const marketingEmployeesInOffice = getMarketingEmployeesInOffice(employees);
-console.log(marketingEmployeesInOffice);
+// Chamando a função getMarketing para obter os funcionários de marketing
+const marketing = getMarketing(employees);
+
+// Imprimindo o resultado no console
+console.log(marketing);

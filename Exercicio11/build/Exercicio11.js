@@ -14,9 +14,9 @@ const employees = [
     { name: "Natalia", salary: 4700, office: department.SALES, presential: true },
     { name: "Paola", salary: 3500, office: department.MARKETING, presential: true }
 ];
-function getMarketingEmployeesInOffice(employees) {
-    return employees.filter(employee => employee.office === department.MARKETING && employee.presential);
+function getMarketing(employees) {
+    return employees.filter(person => person.office === department.MARKETING && person.presential);
 }
-const marketingEmployeesInOffice = getMarketingEmployeesInOffice(employees);
-console.log(marketingEmployeesInOffice);
+const marketing = getMarketing(employees);
+console.log(marketing);
 //# sourceMappingURL=Exercicio11.js.map
