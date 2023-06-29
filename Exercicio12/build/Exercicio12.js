@@ -8,8 +8,8 @@ const employees = [
     { name: "Carina", email: "carina@email.com", role: "admin" }
 ];
 function getIsAdmin(employees) {
-    return employees.filter(users => users.role === "admin");
+    return employees.filter((users) => users.role === "admin").map((users) => users.email);
 }
-const isAdmin = getIsAdmin(employees);
-console.log(isAdmin);
+;
+console.log(getIsAdmin(employees));
 //# sourceMappingURL=Exercicio12.js.map

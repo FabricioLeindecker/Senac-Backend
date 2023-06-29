@@ -2,9 +2,9 @@
   "name": "exercicio13",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "exercicio13.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npx tsc && node ./build/Exercicio13.js"
   },
   "keywords": [],
   "author": "",
