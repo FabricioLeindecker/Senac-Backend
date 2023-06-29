@@ -1,4 +1,4 @@
-// O seguinte `array` traz as pessoas colaboradoras de uma empresa, com seus salários, setores e se trabalham presencialmente ou por home office:
+// O seguinte `array` traz as pessoas colaboradoras de uma empresa, com seus salários, setores e se trabalham presencialmente ou por home sector:
 // [
 // 	{ nome: "Marcos", salário: 2500, setor: "marketing", presencial: true },
 // 	{ nome: "Maria" ,salário: 1500, setor: "vendas", presencial: false},
@@ -19,23 +19,23 @@ enum department {
 type person = {
     name:string,
     salary:number,
-    office:department,
+    sector:department,
     presential:boolean
  }
 
 const employees: person[] = [
-    { name: "Marcos", salary: 2500, office: department.MARKETING, presential: true },
-    { name: "Maria" ,salary: 1500, office: department.SALES, presential: false},
-    { name: "Salete" ,salary: 2200, office: department.FINANCIAL, presential: true},
-    { name: "João" ,salary: 2800, office: department.MARKETING, presential: false},
-    { name: "Josué" ,salary: 5500, office: department.FINANCIAL, presential: true},
-    { name: "Natalia" ,salary: 4700, office: department.SALES, presential: true},
-    { name: "Paola" ,salary: 3500, office: department.MARKETING, presential: true }
+    { name: "Marcos", salary: 2500, sector: department.MARKETING, presential: true },
+    { name: "Maria" ,salary: 1500, sector: department.SALES, presential: false},
+    { name: "Salete" ,salary: 2200, sector: department.FINANCIAL, presential: true},
+    { name: "João" ,salary: 2800, sector: department.MARKETING, presential: false},
+    { name: "Josué" ,salary: 5500, sector: department.FINANCIAL, presential: true},
+    { name: "Natalia" ,salary: 4700, sector: department.SALES, presential: true},
+    { name: "Paola" ,salary: 3500, sector: department.MARKETING, presential: true }
  ]
 
 // Função que retorna os funcionários de marketing que estão trabalhando presencialmente
 function getMarketing(employees: person[]): person[] {
-  return employees.filter(person => person.office === department.MARKETING && person.presential);
+  return employees.filter(person => person.sector === department.MARKETING && person.presential);
 }
 
 // Chamando a função getMarketing para obter os funcionários de marketing

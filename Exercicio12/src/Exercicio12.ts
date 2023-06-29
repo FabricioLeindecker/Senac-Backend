@@ -24,7 +24,12 @@ const employees:users[] = [
     {name: "Carina", email: "carina@email.com", role: "admin"} 
 ]
 
-function isAdmin(employees:users[]):users[] {
+function getIsAdmin(employees:users[]):users[] {    
+    const filter = employees.filter(users => users.role === "admin")
+    const map = filter.map(employees.email)
 
-    return
+    return map
 }
+
+const isAdmin = getIsAdmin(employees);
+console.log(isAdmin);

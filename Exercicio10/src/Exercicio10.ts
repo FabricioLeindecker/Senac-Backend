@@ -8,18 +8,18 @@
 // }
 // Além dessas informações presentes em todos os filmes, alguns deles possuem uma informação opcional: 4. pontuação em site de resenha (ex. Metacritic, RotenTomatoes).
 // Considerando todas estas informações, crie uma função que receba todas essas informações como parâmetros( 3 essenciais + 1 opcional) e retorne todas informações organizadas em um `type`
-enum gender {
-    ACTION = "Ação",
-    DRAMA = "Drama",
-    COMEDY = "Comédia",
+enum genre {
+    ACTION  = "Ação",
+    DRAMA   = "Drama",
+    COMEDY  = "Comédia",
     ROMANCE = "Romance",
-    TERROR = "Terror"
+    TERROR  = "Terror"
 }
 
-function streaming(name:string, date:number, genre:gender, avaliation?:number):void {
+function streaming(name:string, date:number, genre:string, avaliation?:number):void {
     console.log(typeof name, typeof date, typeof genre, typeof avaliation);
     console.log("Nome:", name, "\nData de lançamento:", date, "\nGênero:", genre, avaliation !== undefined ? "\nPontuação: " + avaliation : '');
 }
 
-streaming("John Wick", 2014, gender.ACTION, 90);
-streaming("Exorcista", 1990, gender.TERROR);
+streaming("John Wick", 2014, genre.ACTION, 90);
+streaming("Exorcista", 1990, genre.TERROR);
