@@ -7,12 +7,18 @@ const person = [
     { name: "Artur", totalBalance: 1800, debts: [200, 300] },
     { name: "Soter", totalBalance: 1200, debts: [] }
 ];
-function inDebt(debtors) {
-    let calculation = debtors.filter((client) => {
-        const totalDebt = client.debts.reduce((total, debt) => total + debt, 0);
-    });
-    return calculation;
+function getNegativeAmount(users) {
+    calculateDebts();
+    return users.filter((clients => {
+        return clients.totalBalance <= 0;
+    }));
 }
-;
-console.log(inDebt(person));
+function calculateDebts() {
+    return person.map(user => {
+        const sumDebts = user.debts.reduce((acumulator, value) => value ? acumulator += value : 0, 0);
+        user.totalBalance -= sumDebts;
+        user.debts = [];
+    });
+}
+console.log(getNegativeAmount(person));
 //# sourceMappingURL=Exercicio13.js.map

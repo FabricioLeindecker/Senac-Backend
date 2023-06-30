@@ -44,14 +44,20 @@ const person:clients[] = [
     { name: "Soter", totalBalance: 1200, debts: [] }
 ]
 
-function inDebt(debtors:clients[]):clients[] {
-    let calculation = debtors.filter((client) => {
-        const totalDebt = client.debts.reduce((total, debt) => total + debt, 0);
-        }
-        person.totalBalance - totalDebt > 0;
-    );
+function getNegativeAmount(users:clients[]):clients[] {
+    calculateDebts();
+    return users.filter((clients => {
+        return clients.totalBalance <= 0;
+    }))
+}
 
-    return calculation
-};
+function calculateDebts() {
+    return person.map(user => {
+        const sumDebts = user.debts.reduce((acumulator:number, value:number) => 
+            value ? acumulator += value : 0, 0);
+        user.totalBalance -= sumDebts;
+        user.debts = [];
+    })
+}
 
-console.log(inDebt(person));
+console.log(getNegativeAmount(person));
