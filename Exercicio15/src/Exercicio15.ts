@@ -6,14 +6,36 @@
     // - **Entradas/Saídas**
     //     input: string, string
     //     output: boolean
-    //     ```
-        
+ 
     // - **Dica 1**
     //     Você precisará da data atual para fazer as operações, uma opção é utilizar `new Date()` para obter a data atual
         
     // - **Dica 2**   
     //     Para fazer as operações necessárias, você pode converter as datas para `timestamp` usando o método `getTime()` na data
 
-    function checkUpdateId(birthdayYear:string, issueYear:string):boolean {
-        birthdayYear = new Date()
-    }
+    function checkUpdateId(birthdayYear: string, issueYear: string): boolean {
+        const currentDate: Date = new Date();
+        const currentYear: number = currentDate.getFullYear();
+      
+        const birthday: Date = new Date(birthdayYear);
+        const issueDate: Date = new Date(issueYear);
+      
+        const ageInYears: number = currentYear - birthday.getFullYear();
+      
+        // Obtem a diferença de tempo em milissegundos entre as datas
+        const timeSinceIssue: number = currentDate.getTime() - issueDate.getTime();
+      
+        // Converte a diferença de tempo em anos
+        const yearsSinceIssue: number = new Date(timeSinceIssue).getFullYear();
+      
+        if (ageInYears <= 20 || (ageInYears === 21 && birthday > currentDate)) {
+          return yearsSinceIssue >= 5;
+        } else if (ageInYears <= 50 || (ageInYears === 51 && birthday > currentDate)) {
+          return yearsSinceIssue >= 10;
+        } else {
+          return yearsSinceIssue >= 15;
+        }
+      }
+         
+console.log(checkUpdateId("10/03/1980", "10/03/2010"));
+console.log(checkUpdateId("10/03/2000", "10/03/2015"));
