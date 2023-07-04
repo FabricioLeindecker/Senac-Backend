@@ -17,5 +17,5 @@ function listProducts(products) {
     return products.sort((a, b) => a.quantidade - b.quantidade);
 }
 ;
-console.log(listProducts(products));
+console.log(typeof listProducts(products));
 //# sourceMappingURL=Exercicio14.js.map
