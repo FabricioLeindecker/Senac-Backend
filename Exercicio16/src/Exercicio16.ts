@@ -17,15 +17,18 @@
 // input: string
 // output: number
 
-function calculateAnagramCount(word: string): number {
-    const length = word.length;
-    let factorial = 1;
+function anagramCount(word: string): number {
+    const wordLength:number = word.length;
+    let factorial:number = 1;
   
-    for (let i = 2; i <= length; i++) {
+    for (let i = 2; i <= wordLength; i++) {
       factorial *= i;
     }
   
     return factorial;
-  }
- 
-console.log(calculateAnagramCount("mesa"));
+  };
+
+ console.log(anagramCount("mesa"));
+ console.log(anagramCount("galho"));
+ console.log(anagramCount("n"));
+ console.log(anagramCount(""));
