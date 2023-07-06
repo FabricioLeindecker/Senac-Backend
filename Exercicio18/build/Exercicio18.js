@@ -6,31 +6,42 @@ function cpfValidation(cpf) {
     let splitCpf = cpf.replace(/[\s, -/]*/igm, '');
     if (!splitCpf ||
         splitCpf.length !== 11 ||
-        splitCpf === "00000000000" ||
-        splitCpf === "11111111111" ||
-        splitCpf === "22222222222" ||
-        splitCpf === "33333333333" ||
-        splitCpf === "44444444444" ||
-        splitCpf === "55555555555" ||
-        splitCpf === "66666666666" ||
-        splitCpf === "77777777777" ||
-        splitCpf === "88888888888" ||
-        splitCpf === "99999999999") {
+        splitCpf.match(/(\d)\1{10}/)) {
         return false;
     }
     let sum = 0;
     let mod = 0;
-    for (let i = 1; i <= 0; i++) {
-        sum = sum + parseInt(splitCpf.substring(i - 1, i)) * (10 - i);
+    for (let i = 0; i < 9; i++) {
+        sum += parseInt(splitCpf.charAt(i)) * (10 - i);
     }
-    mod = (sum % 11);
-    console.log(sum);
+    mod = 11 - (sum % 11);
+    if (mod >= 10) {
+        mod = 0;
+    }
+    ;
+    if (mod !== parseInt(splitCpf.charAt(9))) {
+        return false;
+    }
+    sum = 0;
+    for (let i = 0; i < 10; i++) {
+        sum += parseInt(splitCpf.charAt(i)) * (11 - i);
+    }
+    mod = 11 - (sum % 11);
+    if (mod >= 10) {
+        mod = 0;
+    }
+    ;
+    if (mod !== parseInt(splitCpf.charAt(10))) {
+        return false;
+    }
     return true;
 }
 ;
-let result = cpfValidation("145.382.206-20");
-if (!result) {
+let result = cpfValidation("111.111.111-11");
+if (result) {
+    console.log("CPF válido");
+}
+else {
     console.log("CPF inválido");
 }
-;
 //# sourceMappingURL=Exercicio18.js.map
