@@ -62,12 +62,12 @@
 // - **Entradas/Saídas**
 
 function cpfValidation(cpf:string):boolean {
-    if (typeof cpf !== "string") {
+  if (typeof cpf !== "string") {
         return false;
-    }
+  }
 
-    //let splitCpf:any = cpf.replace("-",".").replace(/\./g,"").split("");
-    let splitCpf = cpf.replace(/[\s, -/]*/igm, '');
+  //let splitCpf:any = cpf.replace("-",".").replace(/\./g,"").split("");
+  let splitCpf = cpf.replace(/[\s, -/]*/igm, '');
 
 /*  if (!splitCpf || 
         splitCpf.length !== 11 ||
@@ -85,55 +85,56 @@ function cpfValidation(cpf:string):boolean {
         return false;
     };
 */
-    if (!splitCpf || 
-        splitCpf.length !== 11 ||
-        splitCpf.match(/(\d)\1{10}/)) {
+  if (!splitCpf || 
+    splitCpf.length !== 11 ||
+    splitCpf.match(/(\d)\1{10}/)) {
     
-        return false;
-    }
-    //match(): É um método disponível para strings em JavaScript que verifica se há correspondência entre uma expressão regular e a string.
-    // (\d): Isso define um grupo de captura que corresponde a um único dígito (\d representa qualquer dígito de 0 a 9).
-    // \1: É uma referência ao primeiro grupo de captura. Portanto, representa uma repetição do mesmo dígito encontrado anteriormente.
-    // {10}: Especifica que o dígito capturado anteriormente deve se repetir exatamente 10 vezes.
+    return false;
+  }
+  //match(): É um método disponível para strings em JavaScript que verifica se há correspondência entre uma expressão regular e a string.
+  // (\d): Isso define um grupo de captura que corresponde a um único dígito (\d representa qualquer dígito de 0 a 9).
+  // \1: É uma referência ao primeiro grupo de captura. Portanto, representa uma repetição do mesmo dígito encontrado anteriormente.
+  // {10}: Especifica que o dígito capturado anteriormente deve se repetir exatamente 10 vezes.
 
-    //calculo primeiro dv
-    let sum:number = 0;
-    let mod:number = 0;
-    for (let i = 0; i < 9; i++) {
-        sum += parseInt(splitCpf.charAt(i)) * (10 - i);
-      }
-        mod = 11 - (sum % 11);
+  //calculo primeiro dv
+  let sum:number = 0;
+  let mod:number = 0;
+  for (let i = 0; i < 9; i++) {
+    sum += parseInt(splitCpf.charAt(i)) * (10 - i);
+  };
+  
+  mod = 11 - (sum % 11);
     
-        if (mod >= 10) {
-            mod = 0; //penultimo dv [9]
-        };
+  if (mod >= 10) {
+    mod = 0; //penultimo dv [9]
+  };
 
-        if (mod !== parseInt(splitCpf.charAt(9))) {
-            return false;
-          }
+  if (mod !== parseInt(splitCpf.charAt(9))) {
+    return false;
+  };
 
-        //calculo segundo dv
-        sum = 0;
-        for (let i = 0; i < 10; i++) {
-            sum += parseInt(splitCpf.charAt(i)) * (11 - i);
-          }
-            mod = 11 - (sum % 11);
+  //calculo segundo dv
+  sum = 0;
+  for (let i = 0; i < 10; i++) {
+    sum += parseInt(splitCpf.charAt(i)) * (11 - i);
+  };
+    mod = 11 - (sum % 11);
     
-        if (mod >= 10) {
-            mod = 0; //penultimo dv [9]
-        };
+  if (mod >= 10) {
+    mod = 0; 
+  };
         
-        if (mod !== parseInt(splitCpf.charAt(10))) {
-            return false;
-          }
+  if (mod !== parseInt(splitCpf.charAt(10))) {
+    return false;
+  };
 
-        return true;
+  return true;
 };
 
 let result = cpfValidation("111.111.111-11");
 
 if (result) {
     console.log("CPF válido");
-  } else {
+} else {
     console.log("CPF inválido");
-  };
+};
